@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css">
   <title>Cadastro de produto</title>
 </head>
 <body>
-  <div>
-    <center>
-      <h1>Cadastro de novo produto</h1>
-    </center>
-    <a href="funcionario.html"><- Voltar</a>
+  <header>
+    
+    <div class="link">
+
+      <a href="funcionario.html"><- Voltar</a>
+    </div>
+      <h1>Cadastro de Funcionário</h1>
+    </header>
     
   </div>
-  <div>
-    <form action="funcionario.html"><br/>
-      <label for="nomeDoProduto">Nome do funcionario</label><br/>
-      <input type="text" name="name" id="name" /><br/><br/>
+  <div class="worker">
+    <form action="funcionario.html">
+      <label for="nomeDoProduto">Nome do funcionario</label>
+      <input type="text" name="name" id="name" />
 
-      <label for="descricaoDoProduto">Data de nascimento</label><br/>
-      <input type="date" name="dateOfBirth" id="dateOfBirth" /><br/><br/>
+      <label for="descricaoDoProduto">Data de nascimento</label>
+      <input type="date" name="dateOfBirth" id="dateOfBirth" />
 
       <button type="submit">Cadastrar</button>
     </form>

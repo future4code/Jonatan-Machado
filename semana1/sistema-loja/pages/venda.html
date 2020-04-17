@@ -18,19 +18,25 @@
   </div>
   <div class="worker">
     <form action="estoque.html"><br/>
-      <label for="imagem">imagem do produto</label><br/>
-      <input type="file" name="img" id="img" /><br/><br/>
 
       <label for="nomeDoProduto">Nome do Produto</label><br/>
       <input type="text" name="name" id="name" /><br/><br/>
 
-      <label for="descricaoDoProduto">Descrição do produto</label><br/>
-      <input type="text" name="description" id="description" /><br/><br/>
+      <label for="descricaoDoProduto">Descrição do produto</label>
+      <input type="text" name="description" id="description" />
 
-      <label for="preco">Preço</label><br/>
+      <label for="preco">Preço</label>
       <input type="number" name="price" id="price" /><br/><br/>
-      <button type="submit">Cadastrar</button>
-    </form>
+        
+      <label for="method">Preço</label>
+                  <input list="payment" name="payment">
+                  <datalist id="payment">
+                    <option value="dinheiro">
+                    <option value="Cartão">
+                        
+                   </datalist>
+        <button type="submit">Cadastrar</button>
+              </form>
   </div>
 </body>
 </html>
