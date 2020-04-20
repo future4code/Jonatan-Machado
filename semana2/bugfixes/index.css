@@ -40,6 +40,14 @@ img {
     background-color:white !important;
 }
 
+img:hover{
+    opacity: 75%
+}
+
+img:active{
+    opacity: 100%;
+}
+
 div>p:first-child {
     display: inline;
 }
