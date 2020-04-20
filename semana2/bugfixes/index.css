@@ -26,16 +26,12 @@ button:focus {
 }
 
 img {
-    width: 50px;
+    max-width: 50px;
     background-color:white !important;
 }
 
 div>p:first-child {
     display: inline;
-}
-
-div img {
-    background: black;
 }
 
 .botao-amarelo {
