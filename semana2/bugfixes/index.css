@@ -168,6 +168,7 @@ td button:active {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 40px auto;
     
 }
 #back-button a{
@@ -177,4 +178,9 @@ td button:active {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+.voltar{
+    width: 100px; 
+    margin: 0 auto;
 }
