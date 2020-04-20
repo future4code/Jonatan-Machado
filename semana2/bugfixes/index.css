@@ -44,6 +44,7 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    margin-top: 108px;
 }
 
 .botao-amarelo:hover {
@@ -92,8 +93,10 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
+   padding-top: 200px;
    
 }
+
 
 #container-para-comprar>p {
     color: #c44f00;
