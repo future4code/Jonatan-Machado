@@ -1,0 +1,106 @@
+.primeiro{
+  justify-content:flex-end;
+}
+
+.segundo{
+  justify-content: center;
+}
+
+.terceiro{
+  justify-content: space-around;
+}
+
+.quarto{
+  justify-content: space-between;
+}
+
+.quinto{
+  align-items: flex-end;
+}
+
+.sexto{
+  align-items: center;
+justify-content: center;
+}
+
+.setimo{
+  align-items: flex-end;
+justify-content: space-around;
+}
+
+.oitavo{
+  flex-direction: row-reverse;
+}
+
+.nono{
+  flex-direction:column;
+}
+
+.decimo{
+  flex-direction:row-reverse;
+justify-content: flex-end;
+}
+
+.decimoPrimeiro{
+  flex-direction:column;
+  justify-content: flex-end;
+}
+.decimoSegundo{
+  flex-direction:column-reverse;
+  justify-content: space-between;
+}
+.decimoTerceiro{
+  flex-direction:row-reverse;
+  justify-content: center;
+align-items: flex-end;
+}
+.decimoQuarto{
+  order: 1;
+}
+
+.decimoQuinto{
+  order: -1;
+}
+
+.decimoSexto{
+  align-self:flex-end;
+}
+
+.decimoSetimo{
+  order:2;
+align-self:flex-end;
+}
+
+.decimoOitavo{
+  flex-wrap:wrap;
+}
+
+.decimoNono{
+  flex-direction:column;
+flex-wrap:wrap;
+}
+
+.vigesimo{
+  flex-direction:column; 
+  flex-wrap:wrap;
+}
+
+.vigesimoPrimeiro{
+  align-content: flex-start;
+}
+
+.vigesimoSegundo{
+  align-content: flex-end;
+}
+
+.vigesimoTerceiro{
+  align-content: center;
+  flex-direction:column-reverse;
+}
+
+.vigesimoQuarto{
+  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-content: space-between;
+}
