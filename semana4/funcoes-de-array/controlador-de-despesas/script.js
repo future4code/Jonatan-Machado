@@ -21,4 +21,6 @@ const dataExpenses = (value, option, description) => {
   expenses.option = option;
   expenses.description = description;
   dataBaseDetails.push(expenses);
+  extract(dataBaseDetails);
+  SumValue(dataBaseDetails);
 };
