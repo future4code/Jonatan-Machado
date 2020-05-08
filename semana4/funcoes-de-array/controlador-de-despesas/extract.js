@@ -18,6 +18,25 @@ const SumValue = (data) => {
   }, 0);
 };
 
+const sortValue = () => {
+  let orderValue = dataBaseDetails.sort(function (a, b) {
+    return a.value - b.value;
+  });
+  console.log(orderValue);
+  mountHtmlSort(orderValue);
+};
+
+const mountHtmlSort = (results) => {
+  clear();
+  results.map((data) => {
+    return (document.getElementById('detailsExtract').innerHTML += `
+    <p>${data.value}
+    ${data.description}
+    ${data.option}</p>
+    `);
+  });
+};
+
 const clear = () => {
   document.getElementById('detailsExtract').innerHTML = '';
 };

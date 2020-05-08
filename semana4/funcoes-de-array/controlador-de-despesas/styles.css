@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #6c4fbb;
+  margin: 30px;
+}
+
+body h1 {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.extrato > h2 {
+  text-align: center;
+}
+
+.saida-extrato {
+  color: green;
+}
+
+form * {
+  margin: 15px 0;
+}
+
+form {
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid black;
+  box-shadow: 10px 10px 1px rgba(255, 255, 255, 0.4);
+  padding: 30px;
+}
+#error-output {
+  color: red;
+}
+
+#details-output {
+  color: blue;
+}

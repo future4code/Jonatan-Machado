@@ -4,6 +4,8 @@ const filterData = () => {
   minValue = document.getElementById('minValue').value;
   maxValue = document.getElementById('maxValue').value;
 
+  let resultsData = [];
+
   const dataFilter = dataBaseDetails.filter((description) => {
     if (minValue != '' && maxValue != '') {
       if (
@@ -12,7 +14,8 @@ const filterData = () => {
         parseInt(description.value) <= parseInt(maxValue)
       ) {
         console.log(description.value);
-        return description.value > minValue && description.value < maxValue;
+        resultsData.push(description);
+        mountHtml(resultsData);
       } else {
         document.getElementById('details').innerHTML = `
         <h1 style="color:red;">Não à nenhum registro</h1>
@@ -22,22 +25,19 @@ const filterData = () => {
       alert('erro');
     }
   });
-  dataFilter.map((description) => {
-    console.log(`map ${description}`);
-    return mountHtml(description);
+};
+
+const mountHtml = (results) => {
+  clearDetails();
+  results.map((data) => {
+    return (document.getElementById('details').innerHTML += `
+    <p>${data.value}
+    ${data.description}
+    ${data.option}</p>
+    `);
   });
 };
 
-const mountHtml = (data) => {
-  clearDetails();
-  console.log(data);
-  document.getElementById('details').innerHTML += `
-        <p>${data.value}
-        ${data.description}
-        ${data.option}</p>
-
-      `;
-};
 const clearDetails = () => {
   document.getElementById('details').innerHTML = '';
 };

@@ -23,4 +23,5 @@ const dataExpenses = (value, option, description) => {
   dataBaseDetails.push(expenses);
   extract(dataBaseDetails);
   SumValue(dataBaseDetails);
+  sortValue();
 };

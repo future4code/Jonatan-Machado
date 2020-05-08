@@ -3,60 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Controlador de Despesa</title>
   </head>
   <body>
-    <div class="registerExpense">
-      <form>
-        <h1>Cadastrar Despesa</h1>
-        <label for="expenseValue">Valor</label>
-        <input type="number" id="expenseValue" />
-        <label for="choiceOptions">Tipo(Casa,Viagens,Escola,Diversos)</label>
-        <select id="choiceOptions">
-          <option value="home">Casa</option>
-          <option value="trip">Viagens</option>
-          <option value="school">Escola</option>
-          <option value="several">diversos</option>
-        </select>
-        <label for="expenseDescription">Descrição</label>
-        <input type="text" id="expenseDescription" />
-        <button onclick="registerExpenses()">Cadastrar</button>
-      </form>
+    <div class="wrapper">
+      
+        <form>
+          <h1>Cadastrar Despesa</h1>
+          <label for="expenseValue">Valor</label>
+          <input type="number" id="expenseValue" />
+          <label for="choiceOptions">Tipo(Casa,Viagens,Escola,Diversos)</label>
+          <select id="choiceOptions">
+            <option value="home">Casa</option>
+            <option value="trip">Viagens</option>
+            <option value="school">Escola</option>
+            <option value="several">diversos</option>
+          </select>
+          <label for="expenseDescription">Descrição</label>
+          <input type="text" id="expenseDescription" />
+          <button onclick="registerExpenses()">Cadastrar</button>
+        </form>
+     
+      
+        <form action="">
+          <h1>Despesas Detalhadas</h1>
+
+          <label for="choicesOptions">Tipo(Casa,Viagens,Escola,Diversos)</label>
+          <select id="choicesOptions">
+            <option value="home">Casa</option>
+            <option value="trip">Viagens</option>
+            <option value="school">Escola</option>
+            <option value="several">diversos</option>
+          </select>
+
+          <label for="minValue">Valor Mínimo</label>
+          <input type="number" id="minValue" />
+
+          <label for="maxValue">Valor Máximo</label>
+          <input type="number" id="maxValue" />
+          <button onclick="filterData()">Filtar</button>
+        </form>
+     
+        <section id="details"></section>
+        <section class="extrato">
+          <h1>Extrato</h1>
+          <button type="submit" onclick="sortValue()">
+            Do maior ao menor R$
+          </button>
+          <br />
+          <ul id="detailsExtract" class="saida-extrato"></ul>
+          <h2>Valor total:</h2>
+          <p>R$</p>
+          <p id="totalValue"></p>
+        </section>
+      </div>
+      <script src="script.js"></script>
+      <script src="filter.js"></script>
+      <script src="extract.js"></script>
     </div>
-    <div id="showExpense">
-      <form action="">
-        <h1>Despesas Detalhadas</h1>
-
-        <label for="choicesOptions">Tipo(Casa,Viagens,Escola,Diversos)</label>
-        <select id="choicesOptions">
-          <option value="home">Casa</option>
-          <option value="trip">Viagens</option>
-          <option value="school">Escola</option>
-          <option value="several">diversos</option>
-        </select>
-
-        <label for="minValue">Valor Mínimo</label>
-        <input type="number" id="minValue" />
-
-        <label for="maxValue">Valor Máximo</label>
-        <input type="number" id="maxValue" />
-        <button onclick="filterData()">Filtar</button>
-      </form>
-      <section id="details"></section>
-      <section>
-        <h1>Extrato</h1>
-        <button type="submit" onclick="sortValue()">
-          Do maior ao menor R$
-        </button>
-        <br />
-        <ul id="detailsExtract"></ul>
-        <h2>Valor total:</h2>
-        <p>R$</p>
-        <p id="totalValue"></p>
-      </section>
-    </div>
-    <script src="script.js"></script>
-    <script src="filter.js"></script>
-    <script src="extract.js"></script>
   </body>
 </html>
