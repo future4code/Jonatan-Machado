@@ -61,13 +61,30 @@ e)true
 só sai do lopp quando o i for maior que o quantidadeDeNumerosPares gerando assim um 
 loop infinito
 ====================================================================*/
-const quantidadeDeNumerosPares
+/* const quantidadeDeNumerosPares
 let i = 0
 while(i <= quantidadeDeNumerosPares) {
   console.log(i*2)
   i++;
-}
+} */
 
 /*================================================================== 
 4 - 
 ====================================================================*/
+/* 
+const checkTrigonometri = (side1, side2, side3) => {
+  if (side1 === side2 && side2 === side3) {
+    console.log('Equilátero');
+  } else if (
+    (side1 === side3 && side3 !== side2) ||
+    (side1 === side2 && side3 !== side1) ||
+    (side3 === side2 && side2 !== side1)
+  ) {
+    console.log('Isóceles');
+  } else {
+    console.log('Escaleno');
+  }
+};
+
+checkTrigonometri(2, 1, 3);
+ */
