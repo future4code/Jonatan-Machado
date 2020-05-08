@@ -59,14 +59,19 @@ e)true
 /*================================================================== 
 3 - não funciona, pois está multiplicando por 2 o i que começa com 0 e como ele
 só sai do lopp quando o i for maior que o quantidadeDeNumerosPares gerando assim um 
-loop infinito
+loop infinito, colocado uma condição para verificar o numero par e imprimir na tela
 ====================================================================*/
-/* const quantidadeDeNumerosPares
-let i = 0
-while(i <= quantidadeDeNumerosPares) {
-  console.log(i*2)
-  i++;
-} */
+
+const quantidadeDeNumerosPares = (number) => {
+  let i = 0;
+  while (i < number) {
+    if (i % 2 === 0) {
+      console.log(i);
+    }
+    i++;
+  }
+};
+quantidadeDeNumerosPares(5);
 
 /*================================================================== 
 4 - 
@@ -136,7 +141,52 @@ segundo maior e o segundo menor número. Em seguida, invoque essa função.
   console.log(`O segundo menor é ${arr[1]} e o segundo maior é ${arr[second]}`);
 };
 
+arrayMaxMin.
+
+
 const alertLabebu = () => {
   alert('Hello Labenu!');
   arrayMaxMin();
-}; */
+};  */
+/*================================================================== 
+EXERCICIO DE  OBJETOS
+
+1 - usamos arrays quando queremos gravar diversos dados dentro de uma variavel apenas,
+com objetos conseguimos gravar alem de diversos dados, podemos criar eles com diversas características,
+dessa forma podemos abstrair mais usando um objeto dentro de um array, deixando mais facil de ser manipulado.
+
+2-
+====================================================================*/
+/* const crieRetangulo = (lado1, lado2) => {
+  let retangulo = {};
+  retangulo.lado1 = lado1;
+  retangulo.lado2 = lado2;
+  retangulo.perimetro = 2 * (lado1 + lado2);
+  retangulo.area = lado1 * lado2;
+  console.log(retangulo);
+};
+
+crieRetangulo(15, 2);
+
+ */
+
+/* ========================================================================= 
+ 3 -
+ ===========================================================================*/
+let filme = [
+  {
+    nome: 'Interestelar',
+    protagonista: 'Matthew McConaughey',
+    atriz: 'Anne Hathaway',
+    diretor: 'Christopher Nolan',
+    ano: '2014',
+    IMDb: '8,6',
+  },
+];
+console.log(
+  `Venha assistir ao clássico ${filme[0].nome}, de ${filme[0].ano}. Protagonizado por ${filme[0].protagonista},do diretor ${filme[0].diretor}. Uma das atrizer é nada mais do  que a ${filme[0].atriz}! Tem a nota ${filme[0].IMDb} no IMDb.\n\n`
+);
+
+/* ========================================================================= 
+ 4 -
+ ===========================================================================*/
