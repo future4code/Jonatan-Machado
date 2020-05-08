@@ -25,7 +25,7 @@ EXERCICIO DE LÓGICA DE PROGRAMAÇÃO
 
 1 -  for of, map e foreach
 ====================================================================*/
-function itemArray(array) {
+/* function itemArray(array) {
   let firstItem = [];
   let secondItem = [];
   let thirdItem = [];
@@ -45,7 +45,7 @@ function itemArray(array) {
   console.log(`1: ${firstIteration} \n 2: ${secondItem} \n  3: ${thirdItem}`);
 }
 
-itemArray(arrayNumbers);
+itemArray(arrayNumbers); */
 
 /*================================================================== 
 2 -  
@@ -54,4 +54,20 @@ b) false
 c)true
 d)true
 e)true
+====================================================================*/
+
+/*================================================================== 
+3 - não funciona, pois está multiplicando por 2 o i que começa com 0 e como ele
+só sai do lopp quando o i for maior que o quantidadeDeNumerosPares gerando assim um 
+loop infinito
+====================================================================*/
+const quantidadeDeNumerosPares
+let i = 0
+while(i <= quantidadeDeNumerosPares) {
+  console.log(i*2)
+  i++;
+}
+
+/*================================================================== 
+4 - 
 ====================================================================*/
