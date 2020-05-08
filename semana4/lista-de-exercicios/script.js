@@ -173,7 +173,7 @@ crieRetangulo(15, 2);
 /* ========================================================================= 
  3 -
  ===========================================================================*/
-let filme = [
+/* let filme = [
   {
     nome: 'Interestelar',
     protagonista: 'Matthew McConaughey',
@@ -185,8 +185,62 @@ let filme = [
 ];
 console.log(
   `Venha assistir ao clássico ${filme[0].nome}, de ${filme[0].ano}. Protagonizado por ${filme[0].protagonista},do diretor ${filme[0].diretor}. Uma das atrizer é nada mais do  que a ${filme[0].atriz}! Tem a nota ${filme[0].IMDb} no IMDb.\n\n`
-);
+); */
 
 /* ========================================================================= 
  4 -
  ===========================================================================*/
+/* let pessoa = {
+  nome: ' Samuel Hazo',
+  idade: 54,
+  endereco: 'estados unidos',
+  email: 'samuel@hazo.com',
+};
+
+function esconderPessoa(object) {
+  object.nome = object.nome.replace(/[a-z]/gi, 'Anonimo');
+  object.endereco = object.endereco.replace(' Anonimo', '');
+  object.email = 'Anonimo';
+  console.log(object);
+}
+
+esconderPessoa(pessoa); */
+
+/*================================================================== 
+EXERCICIO DE FUNÇÕES DE ARRAY
+1-
+====================================================================*/
+/* let pessoas = [
+  {
+    nome: "Pedro",
+    idade: 20,
+  },
+  {
+    nome: "João",
+    idade: 10,
+  },
+  {
+    nome: "Paula",
+    idade: 12,
+  },
+  {
+    nome: "Artur",
+    idade: 89,
+  },
+];
+
+let adultos = pessoas.filter((index) => {
+  if (index.idade >= 20) {
+    return true;
+  }
+});
+
+let novos = pessoas.filter((index) => {
+  if (index.idade < 20) {
+    return true;
+  }
+});
+
+console.log(adultos);
+console.log(novos);
+ */
