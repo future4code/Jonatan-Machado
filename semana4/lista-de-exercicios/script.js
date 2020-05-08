@@ -121,5 +121,22 @@ numerDivisible(1, 1);
  */
 
 /*================================================================== 
-6 - 
+EXERCICIO DE  FUNÇÕES
+
+1 - Escreva uma função que receba um `array` de números e imprima na tela o 
+segundo maior e o segundo menor número. Em seguida, invoque essa função.
 ====================================================================*/
+/* const arrayMaxMin = () => {
+  let arr = [5, 3, 1, 4, 2];
+  arr.sort(function (a, b) {
+    return a - b;
+  });
+  let second = arr.length - 2;
+
+  console.log(`O segundo menor é ${arr[1]} e o segundo maior é ${arr[second]}`);
+};
+
+const alertLabebu = () => {
+  alert('Hello Labenu!');
+  arrayMaxMin();
+}; */
