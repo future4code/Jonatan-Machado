@@ -19,3 +19,35 @@ printa no console o tamanho do array com 14 numeros e depois mostra o tamanho do
 4 - pega o array de numeros e percorre em um loop verificando qual o menor numero salvando na varialve 
 numero1 e verificando qual o maior numero e colocando na variavel numero2, por ultimo printando eles no console
 ====================================================================*/
+
+/*================================================================== 
+EXERCICIO DE LÓGICA DE PROGRAMAÇÃO
+
+1 -  for of, map e foreach
+====================================================================*/
+function itemArray(array) {
+  let firstItem = [];
+  let secondItem = [];
+  let thirdItem = [];
+
+  for (item of array) {
+    firstItem.push(item);
+  }
+
+  array.map((index) => {
+    secondItem.push(index);
+  });
+
+  array.forEach((element) => {
+    thirdIteration.push(element);
+  });
+
+  console.log(`1: ${firstIteration} \n 2: ${secondItem} \n  3: ${thirdItem}`);
+}
+
+itemArray(arrayNumbers);
+
+/*================================================================== 
+2 -  
+a) 
+====================================================================*/
