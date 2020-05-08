@@ -88,3 +88,38 @@ const checkTrigonometri = (side1, side2, side3) => {
 
 checkTrigonometri(2, 1, 3);
  */
+
+/*================================================================== 
+5 - 
+====================================================================*/
+/* const numerDivisible = (number1, number2) => {
+  let big = 0;
+  let small = 0;
+  if (number1 > number2) {
+    big = number1;
+    small = number2;
+    console.log(`maior número é o: ${big}`);
+  } else if (number1 < number2) {
+    big = number2;
+    small = number1;
+    console.log(`maior número é o: ${big}`);
+  } else {
+    big = number1;
+    small = number1;
+    console.log(`Os números são iguais`);
+  }
+  if (big % 2 === 0) {
+    console.log(`${big} é divisivel por ${small}`);
+  } else {
+    console.log(`${big} não é divisivel por ${small}`);
+  }
+
+  console.log(`A difrença entre ele é ${big - small}`);
+};
+
+numerDivisible(1, 1);
+ */
+
+/*================================================================== 
+6 - 
+====================================================================*/
