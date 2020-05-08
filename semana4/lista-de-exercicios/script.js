@@ -25,7 +25,7 @@ EXERCICIO DE LÓGICA DE PROGRAMAÇÃO
 
 1 -  for of, map e foreach
 ====================================================================*/
-/* function itemArray(array) {
+function itemArray(array) {
   let firstItem = [];
   let secondItem = [];
   let thirdItem = [];
@@ -45,7 +45,7 @@ EXERCICIO DE LÓGICA DE PROGRAMAÇÃO
   console.log(`1: ${firstIteration} \n 2: ${secondItem} \n  3: ${thirdItem}`);
 }
 
-itemArray(arrayNumbers); */
+itemArray(arrayNumbers);
 
 /*================================================================== 
 2 -  
@@ -76,7 +76,7 @@ quantidadeDeNumerosPares(5);
 /*================================================================== 
 4 - 
 ====================================================================*/
-/* 
+ 
 const checkTrigonometri = (side1, side2, side3) => {
   if (side1 === side2 && side2 === side3) {
     console.log('Equilátero');
@@ -92,12 +92,12 @@ const checkTrigonometri = (side1, side2, side3) => {
 };
 
 checkTrigonometri(2, 1, 3);
- */
+
 
 /*================================================================== 
 5 - 
 ====================================================================*/
-/* const numerDivisible = (number1, number2) => {
+ const numerDivisible = (number1, number2) => {
   let big = 0;
   let small = 0;
   if (number1 > number2) {
@@ -123,7 +123,7 @@ checkTrigonometri(2, 1, 3);
 };
 
 numerDivisible(1, 1);
- */
+ 
 
 /*================================================================== 
 EXERCICIO DE  FUNÇÕES
@@ -131,7 +131,7 @@ EXERCICIO DE  FUNÇÕES
 1 - Escreva uma função que receba um `array` de números e imprima na tela o 
 segundo maior e o segundo menor número. Em seguida, invoque essa função.
 ====================================================================*/
-/* const arrayMaxMin = () => {
+ const arrayMaxMin = () => {
   let arr = [5, 3, 1, 4, 2];
   arr.sort(function (a, b) {
     return a - b;
@@ -147,7 +147,7 @@ arrayMaxMin.
 const alertLabebu = () => {
   alert('Hello Labenu!');
   arrayMaxMin();
-};  */
+}; 
 /*================================================================== 
 EXERCICIO DE  OBJETOS
 
@@ -157,7 +157,7 @@ dessa forma podemos abstrair mais usando um objeto dentro de um array, deixando 
 
 2-
 ====================================================================*/
-/* const crieRetangulo = (lado1, lado2) => {
+const crieRetangulo = (lado1, lado2) => {
   let retangulo = {};
   retangulo.lado1 = lado1;
   retangulo.lado2 = lado2;
@@ -168,12 +168,12 @@ dessa forma podemos abstrair mais usando um objeto dentro de um array, deixando 
 
 crieRetangulo(15, 2);
 
- */
+
 
 /* ========================================================================= 
  3 -
  ===========================================================================*/
-/* let filme = [
+let filme = [
   {
     nome: 'Interestelar',
     protagonista: 'Matthew McConaughey',
@@ -185,12 +185,12 @@ crieRetangulo(15, 2);
 ];
 console.log(
   `Venha assistir ao clássico ${filme[0].nome}, de ${filme[0].ano}. Protagonizado por ${filme[0].protagonista},do diretor ${filme[0].diretor}. Uma das atrizer é nada mais do  que a ${filme[0].atriz}! Tem a nota ${filme[0].IMDb} no IMDb.\n\n`
-); */
+); 
 
 /* ========================================================================= 
  4 -
  ===========================================================================*/
-/* let pessoa = {
+ let pessoa = {
   nome: ' Samuel Hazo',
   idade: 54,
   endereco: 'estados unidos',
@@ -204,13 +204,13 @@ function esconderPessoa(object) {
   console.log(object);
 }
 
-esconderPessoa(pessoa); */
+esconderPessoa(pessoa); 
 
 /*================================================================== 
 EXERCICIO DE FUNÇÕES DE ARRAY
 1-
 ====================================================================*/
-/* let pessoas = [
+ let pessoas = [
   {
     nome: "Pedro",
     idade: 20,
@@ -243,4 +243,153 @@ let novos = pessoas.filter((index) => {
 
 console.log(adultos);
 console.log(novos);
- */
+ 
+/*================================================================== 
+2-
+====================================================================*/
+
+const array = [1, 2, 3, 4, 5, 6];
+
+let mapPorDois = testArray.map((arg) => {
+  return arg * 2;
+});
+
+let mapPorString = array.map((arg) => {
+  return (arg * 3).toString();
+});
+
+let mapParImpar = array.map((arg) => {
+  if (arg % 2 === 0) {
+    return `${arg} é par`;
+  } else {
+    return `${arg} é ímpar`;
+  }
+});
+
+console.log(mapPorDois);
+console.log(mapPorString);
+console.log(mapParImpar);
+ 
+
+/*================================================================== 
+3-
+====================================================================*/
+ const pessoasParque = [
+  {
+    nome: 'Paula',
+    idade: 12,
+    altura: 1.8,
+  },
+  {
+    nome: 'João',
+    idade: 20,
+    altura: 1.3,
+  },
+  {
+    nome: 'Pedro',
+    idade: 15,
+    altura: 1.9,
+  },
+  {
+    nome: 'Luciano',
+    idade: 22,
+    altura: 1.8,
+  },
+  {
+    nome: 'Artur',
+    idade: 10,
+    altura: 1.2,
+  },
+  {
+    nome: 'Soter',
+    idade: 70,
+    altura: 1.9,
+  },
+];
+
+let permitido = pessoasParque.filter((arg) => {
+  if (arg.idade > 14 && arg.altura > 1.5 && arg.idade < 60) {
+    return true;
+  }
+});
+
+let naoPermitido = pessoasParque.filter((arg) => {
+  if (arg.idade < 14 || arg.idade > 60) {
+    return true;
+  } else if (arg.altura < 1.5) {
+    return true;
+  }
+});
+
+console.log(permitido);
+console.log(naoPermitido);
+
+/*================================================================== 
+4-
+====================================================================*/
+const consultas = [
+  {
+    promtrat: 'Sr.',
+    promF: 'lo',
+    nome: 'João',
+    genero: 'masculino',
+    cancelada: true,
+    dataDaConsulta: '01/10/2019',
+  },
+  {
+    promtrat: 'Sr.',
+    promF: 'lo',
+    nome: 'Pedro',
+    genero: 'masculino',
+    cancelada: false,
+    dataDaConsulta: '02/10/2019',
+  },
+  {
+    promtrat: 'Sra.',
+    promF: 'la',
+    nome: 'Paula',
+    genero: 'feminino',
+    cancelada: true,
+    dataDaConsulta: '03/11/2019',
+  },
+  {
+    promtrat: 'Sra.',
+    promF: 'la',
+    nome: 'Márcia',
+    genero: 'feminino',
+    cancelada: false,
+    dataDaConsulta: '04/11/2019',
+  },
+];
+
+let emailConfirma = consultas.map((arg) => {
+  return `Olá, ${arg.promtrat}${arg.nome}. Estamos enviando esta mensagem para lembrá-${arg.promF} da sua consulta no dia ${arg.dataDaConsulta}.Por favor, acuse o recebimento deste e - mail.`;
+});
+
+let emailCancelar = consultas.map((arg) => {
+  return `Olá, ${arg.promtrat}${arg.nome}. Infelizmente, sua consulta marcada para o dia ${arg.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá - la`;
+});
+
+console.log(emailConfirma);
+console.log(emailCancelar);
+
+/*================================================================== 
+5-
+====================================================================*/
+const contas = [
+  { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+  { cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+  { cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+  { cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+  { cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+  { cliente: "Soter", saldoTotal: 1200, compras: [] },
+];
+
+function balanco(array) {
+  for (items in contas) {
+    array[items].saldoTotal -= array[items].compras.reduce((a, b) => a + b, 0);
+    console.log(array[items]);
+  }
+}
+
+console.log(balanco(contas));
