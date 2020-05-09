@@ -250,7 +250,7 @@ console.log(novos);
 
 const array = [1, 2, 3, 4, 5, 6];
 
-let mapPorDois = testArray.map((arg) => {
+let mapPorDois = array.map((arg) => {
   return arg * 2;
 });
 
