@@ -8,15 +8,17 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #181818;
 }
 
 header {
-  background-color: orange;
+  background-color: #1c1c1c;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
   height: 10%;
+  color: #fff;
 }
 
 main {
@@ -25,6 +27,8 @@ main {
 }
 
 .menu-vertical {
+  background-color: #1c1c1c;
+  color: #fff;
   flex-basis: 200px;
   border-right-style: solid;
   border-right-width: thin;
@@ -84,6 +88,7 @@ main {
 }
 
 .box-pagina-principal {
+  color: #aaa;
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-template-columns: 1fr;
@@ -94,8 +99,9 @@ main {
 }
 
 footer {
+  background-color: #1c1c1c;
+  color: #aaa;
   height: 10%;
-  background-color: grey;
   margin: 0;
   padding: 0;
   display: flex;
