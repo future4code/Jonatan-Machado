@@ -20,13 +20,17 @@ function List() {
   }, []);
 
   async function handleRemoveUser(id) {
-    await api.delete(`/users/${id}`, {
-      headers: {
-        Authorization: 'jonatan-machado-mello',
-      },
-    });
-    toast.success('Usuario removido 😎');
-    setUsers(users.filter((user) => user.id !== id));
+    try {
+      await api.delete(`/users/${id}`, {
+        headers: {
+          Authorization: 'jonatan-machado-mello',
+        },
+      });
+      toast.success('Usuario removido 😎');
+      setUsers(users.filter((user) => user.id !== id));
+    } catch (err) {
+      toast.error('Deu ruim😕');
+    }
   }
 
   return (
