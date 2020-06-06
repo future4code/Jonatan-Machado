@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import api from '../../services/api';
 
 import { Container, NewPlaylist, Nav } from './styles';
 
 import AddPlayListIcon from '../../assets/images/add_playlist.svg';
 
 function Sidebar() {
+  const [lists, setLists] = useState([]);
+
+  useEffect(() => {
+    api
+      .get('/playlists', {
+        headers: {
+          Authorization: 'jonatan-machado-mello',
+        },
+      })
+      .then((response) => {
+        setLists(response.data.result.list);
+      });
+  }, []);
+
   return (
     <Container>
       <div>
@@ -54,9 +70,11 @@ function Sidebar() {
           <li>
             <span>Playlists</span>
           </li>
-          <li>
-            <a href="teste">Melhores do rock</a>
-          </li>
+          {lists.map((list) => (
+            <li key={list.id}>
+              <a href={`/playlists/${list.id}/tracks`}>{list.name}</a>
+            </li>
+          ))}
         </Nav>
       </div>
       <NewPlaylist>

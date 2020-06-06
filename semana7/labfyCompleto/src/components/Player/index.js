@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'rc-slider';
+import Sound from 'react-sound';
 
 import {
   Container,
@@ -18,10 +19,17 @@ import PlayIcon from '../../assets/images/play.svg';
 import PauseIcon from '../../assets/images/pause.svg';
 import ForwardIcon from '../../assets/images/forward.svg';
 import RepeatIcon from '../../assets/images/repeat.svg';
+const boopSfx =
+  'http://95.216.113.156/uv/w1/IS_-FyzjSS3ZRRpO_NjBeA,1591486716/yt:7Ys9aPc1GwA-1/Maria%20Gad%C3%BA%20-%20Bela%20Flor%20%5B%C3%81udio%20Oficial%5D.mp3';
 
 function Player() {
+  const music = localStorage.getItem('music');
+  const musicReplace = music.replace(/"/g, '');
+
+  console.log(musicReplace);
   return (
     <Container>
+      {/* <Sound url={}/> */}
       <Current>
         <img
           src="https://tonimarino.co.uk/wp-content/uploads/2019/11/Dark-Side-of-the-Moon-album-cover.jpeg"
@@ -41,9 +49,16 @@ function Player() {
           <button>
             <img src={BackwardIcon} alt="Shuffle" />
           </button>
-          <button>
-            <img src={PlayIcon} alt="Shuffle" />
-          </button>
+
+          {!1 ? (
+            <button onClick={() => {}}>
+              <img src={PlayIcon} alt="Shuffle" />
+            </button>
+          ) : (
+            <button onClick={() => {}}>
+              <img src={PauseIcon} alt="Shuffle" />
+            </button>
+          )}
           <button>
             <img src={ForwardIcon} alt="Shuffle" />
           </button>
@@ -57,7 +72,7 @@ function Player() {
           <ProgressSlider>
             <Slider
               railStyle={{ background: '#404040', borderRadius: 10 }}
-              trackStyle={{ background: '#1ed760' }}
+              trackStyle={{ background: '#f9b24e' }}
               handleStyle={{ border: 0 }}
             />
           </ProgressSlider>

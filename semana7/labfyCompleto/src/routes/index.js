@@ -9,9 +9,11 @@ function routes() {
   return (
     <Switch>
       <Route path="/" exact component={Browse} />
-      <Route path="/playlists/:id" component={Playlist} />
+      <Route
+        path="/playlists/:id/tracks"
+        render={(child) => <Playlist {...child} />}
+      />
     </Switch>
   );
 }
-
 export default routes;
