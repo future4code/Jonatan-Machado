@@ -89,3 +89,32 @@ export const SongList = styled.table`
     background: #282828;
   }
 `;
+export const FormRegister = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  input {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    height: 15px;
+    width: 175px;
+    padding: 6px 7px 6px 26px;
+    background: #fff;
+    border: 0;
+  }
+  button {
+    background: #1db854;
+    height: 32px;
+    border-radius: 16px;
+    color: #fff;
+    line-height: 32px;
+    padding: 0 35px;
+    border: 0;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 1.11px;
+    cursor: pointer;
+  }
+`;

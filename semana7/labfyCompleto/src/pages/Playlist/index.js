@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 
-import { Container, Header, SongList } from './styles';
+import { Container, Header, SongList, FormRegister } from './styles';
 
 import ClockIcon from '../../assets/images/clock.svg';
 import PlusIcon from '../../assets/images/plus.svg';
@@ -12,8 +12,12 @@ function Playlist({
   },
 }) {
   const [lists, setLists] = useState([]);
+  const [song, setSong] = useState({
+    name: '',
+    artist: '',
+    url: '',
+  });
   const name = localStorage.getItem('name');
-
   useEffect(() => {
     api
       .get(`/playlists/${id}/tracks`, {
@@ -25,6 +29,20 @@ function Playlist({
         setLists(response.data.result.tracks);
       });
   }, []);
+
+  async function handleSong(e) {
+    e.preventDefault();
+    const data = { name: song.name, artist: song.artist, url: song.url };
+
+    try {
+      const response = await api.post(`/playlists/${id}/tracks`, data, {
+        headers: { Authorization: 'jonatan-machado-mello' },
+      });
+      const songs = response.data;
+    } catch (err) {
+      console.log(`erro ${err}`);
+    }
+  }
 
   function loadSong(url) {
     localStorage.setItem('music', JSON.stringify(url));
@@ -70,6 +88,26 @@ function Playlist({
           ))}
         </tbody>
       </SongList>
+      <FormRegister>
+        <form onSubmit={handleSong}>
+          <input
+            type="text"
+            placeholder="Nome do Artista"
+            onChange={(e) => setSong(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Nome da Músca"
+            onChange={(e) => setSong(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="URL (código do spotify)"
+            onChange={(e) => setSong(e.target.value)}
+          />
+          <button type="submit">CRIAR</button>
+        </form>
+      </FormRegister>
     </Container>
   );
 }

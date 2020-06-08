@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -19,17 +20,17 @@ function Sidebar() {
       .then((response) => {
         setLists(response.data.result.list);
       });
-  }, []);
+  }, [lists]);
 
   return (
     <Container>
       <div>
         <Nav main>
           <li>
-            <a href="teste">Navegar</a>
+            <Link to="/">Navegar</Link>
           </li>
           <li>
-            <a href="teste">Rádio</a>
+            <Link to="/">Rádio</Link>
           </li>
         </Nav>
 
@@ -79,7 +80,7 @@ function Sidebar() {
       </div>
       <NewPlaylist>
         <img src={AddPlayListIcon} alt="Adicionar Playlist" />
-        Nova Playlist
+        <Link to="/playlists">Nova Playlist</Link>
       </NewPlaylist>
     </Container>
   );
