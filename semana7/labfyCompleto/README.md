@@ -36,4 +36,4 @@ Labefy - A mini playlist creator
 
 ## Deploy
 
-- leezer-vgutierrez.surge.sh
+- labefy.jonatan.surge.sh
