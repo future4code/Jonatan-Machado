@@ -20,10 +20,6 @@ const CreateTrips: React.FC = () => {
 
   VerifyLogged();
 
-  const getToken = () => {
-    return localStorage.getItem('token');
-  };
-
   const planets: string[] = [
     'Mercúrio',
     'Vênus',
@@ -64,18 +60,26 @@ const CreateTrips: React.FC = () => {
     duration: durationInDay,
   };
 
+  const getToken = () => {
+    return localStorage.getItem('token');
+  };
+
   const token = getToken();
 
-  let header: any = {
+  let header: Auth = {
     auth: token,
   };
   console.log(header);
+
+  interface Auth {
+    auth: string | null;
+  }
 
   async function handleCreateTrip(e: any) {
     e.preventDefault();
 
     try {
-      await api.post('jonatan-machado/trips', body, header);
+      await api.post('jonatan-machado/trips', body, Headers);
       console.log('Cadastro feito!');
     } catch (err) {
       console.log('erro ao cadastrar viagem!');
