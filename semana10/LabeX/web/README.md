@@ -29,9 +29,9 @@
 
 ## :rocket: Sobre o Projeto
 
-A proposta do **TinDev** da [Labenu](https://labenu.com.br/) é desenvolver uma aplicação que simule o Tindev, usando react e suas tecnologias que aprender até o momento.
+A proposta do **SpaceX** da [Labenu](https://labenu.com.br/) é desenvolver uma aplicação de viagens espaciais onde nos comunicamos com uma api, para cadastro de usuarios e viagens e para aprovação de viagens.
 
-Este projeto de Front-end Web foi desenvolvido em ReactJS com JS.
+Este projeto de Front-end Web foi desenvolvido em ReactJS com TS.
 
 ---
 
