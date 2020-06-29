@@ -23,7 +23,9 @@ button {
 }
 button{
   cursor: pointer;
-  background:#f5f5f5;
+  background:#9159c1;
   border:0;
+  padding:15px;
+  border-radius:20px 20px 20px 20px;
 }
 `;

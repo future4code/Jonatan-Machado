@@ -12,6 +12,7 @@ import {
   LabeXHeader,
   Header,
   HeaderButtons,
+  TableList,
 } from './styles';
 
 const ListTrips: React.FC = () => {
@@ -41,7 +42,7 @@ const ListTrips: React.FC = () => {
           <h1>Viagens Disponíveis</h1>
         </Text>
         <ContainerList>
-          <table>
+          <TableList>
             <thead>
               <th />
               <th>Nome da Viagem</th>
@@ -66,7 +67,7 @@ const ListTrips: React.FC = () => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </TableList>
         </ContainerList>
       </ContainerMediumList>
     </ContainerListTripPage>

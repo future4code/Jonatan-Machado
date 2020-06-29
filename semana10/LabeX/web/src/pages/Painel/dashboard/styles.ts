@@ -57,4 +57,8 @@ export const ContainerButtonsADM = styled.div`
   width: 200px;
   height: 150px;
   color: #ff8000;
+
+  button {
+    margin-bottom: 10px !important;
+  }
 `;

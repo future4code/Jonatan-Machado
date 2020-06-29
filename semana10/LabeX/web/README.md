@@ -1,44 +1,131 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+   👨‍🚀 Front-end Web 👩‍🚀 SpaceX 🚀
+</h1>
+<p align="center">
 
-## Available Scripts
+  <br>
 
-In the project directory, you can run:
+  <a href="https://www.linkedin.com/in/jonatan-machado/">
+    <img alt="Made by Jonatan" src="https://img.shields.io/badge/made%20by-joninter">
+  </a>
+</p>
 
-### `yarn start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <img alt="Gif da Aplicação" src="./src/assets/spacex.gif" />
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+# Indice
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- :rocket: [Sobre o Projeto](#rocket-sobre-o-projeto)
+- 👨‍💻️ [Tecnogias utilizadas](#%EF%B8%8F-tecnogias-utilizadas)
+- 📦️ [Como utilizar o projeto](#%EF%B8%8F-como-utilizar-o-projeto)
+- 🤔️ [Como contribuir](#%EF%B8%8F-como-contribuir)
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :rocket: Sobre o Projeto
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+A proposta do **TinDev** da [Labenu](https://labenu.com.br/) é desenvolver uma aplicação que simule o Tindev, usando react e suas tecnologias que aprender até o momento.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este projeto de Front-end Web foi desenvolvido em ReactJS com JS.
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 👨‍💻️ Tecnogias utilizadas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Dependências
 
-## Learn More
+- [JS-Base64](https://www.npmjs.com/package/js-base64)
+- [React Router DOM](https://github.com/ReactTraining/react-router#readme)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- :nail_care: [Styled Components](https://styled-components.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Padronização de código
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- :mouse: [Editor Config](https://editorconfig.org/)
+
+### IDE
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+---
+
+## 📦️ Como utilizar o projeto
+
+Para copiar o projeto, utilize os comandos:
+
+```bash
+  # Clonar o repositório
+  ❯ git clone https://github.com/future4code/jonatan-machado.git
+
+  # Entrar no diretório
+  ❯ cd Jonatan-Machado/semana10-labex
+```
+
+Para instalar as dependências e iniciar o projeto, você pode utilizar o Yarn ou NPM:
+
+**Utilizando yarn**
+
+```bash
+  # Instalar as dependências
+  ❯ yarn
+
+  # Iniciar o projeto
+  ❯ yarn start
+```
+
+**Utilizando npm**
+
+_PS: Caso utilize o NPM, apague o arquivo `yarn.lock` para ter todas as dependências instaladas da melhor forma._
+
+```bash
+  # Instalar as dependências
+  ❯ npm install
+
+  # Iniciar o projeto
+  ❯ npm start
+```
+
+---
+
+## 🤔️ Como contribuir
+
+1. Faça o `fork` deste repositório
+2. Crie uma branch com sua feature:
+   - `$ git checkout -b minha_feature`
+3. Confirme sua branch:
+   - `$ git commit -m "feature: Meu novo recurso"`
+4. Envie sua branch:
+   - `$ git push origin minha_feature`
+
+---
+
+<h4 align="center">
+  Feito com ❤️ por Jonatan Machado 👋️ <a href="mailto:jonatanmachado35@gmail.com">Entre em contato!</a>
+</h4>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/jonatan-machado/">
+    <img alt="Jonatan Machado" src="https://img.shields.io/badge/LinkedIn-jonatan-machado?style=flat&logoColor=white&logo=linkedin">
+  </a>
+  <a href="https://www.facebook.com/jonatan.machado68">
+    <img alt="Jonatan Machado" src="https://img.shields.io/badge/Facebook-jonatan-machado?style=flat&logoColor=white&logo=facebook">
+  </a>
+  <a href="https://www.instagram.com/jonatan.machado/">
+    <img alt="Jonatan Machado" src="https://img.shields.io/badge/Instagram-@joninter?style=flat&logoColor=white&logo=instagram">
+  </a>
+  <a href="https://twitter.com/joninter">
+    <img alt="Jonatan Machado" src="https://img.shields.io/twitter/follow/joninter?style=flat&logoColor=white&logo=Twitter">
+  </a>
+</p>

@@ -22,8 +22,7 @@ export const ContainerList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 600px;
-  height: 400px;
+  width: 1000px;
   color: #ff8000;
   background-color: rgba(69, 82, 91, 0.8);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
@@ -61,3 +60,5 @@ export const HeaderButtons = styled.div`
   width: 200vw;
   height: 80px;
 `;
+
+export const TableList = styled.div``;

@@ -41,3 +41,10 @@ export const ContainerButton = styled.div`
   width: 300px;
   margin-top: 10px;
 `;
+export const LoginInput = styled.input`
+  margin: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px 20px 20px 20px;
+  padding-left: 5px;
+  width: 240px;
+`;

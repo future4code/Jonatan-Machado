@@ -52,6 +52,10 @@ const Dashboard: React.FC = () => {
           <Link to="/viagens">
             <button> Listar Viagens</button>
           </Link>
+
+          <Link to="/candidatar-se">
+            <button>Se candidatar</button>
+          </Link>
         </ContainerButtonsADM>
       </ContainerMediumADM>
     </ContainerADMPage>

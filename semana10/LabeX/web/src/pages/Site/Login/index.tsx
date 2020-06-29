@@ -12,6 +12,7 @@ import {
   ContainerMediumHome,
   LoginRight,
   ContainerButton,
+  LoginInput,
 } from './styles';
 
 const Login: React.FC = () => {
@@ -56,10 +57,10 @@ const Login: React.FC = () => {
         <LoginRight>
           <form onSubmit={handleLogin}>
             <label htmlFor="email">Login</label>
-            <input value={user} onChange={Login} type="email" />
+            <LoginInput value={user} onChange={Login} type="email" />
             <br />
             <label htmlFor="password">Senha</label>
-            <input value={password} onChange={Password} type="password" />
+            <LoginInput value={password} onChange={Password} type="password" />
             <ContainerButton>
               <Link to="/">
                 <button type="submit">Voltar</button>
