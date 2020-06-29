@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 import api from '../../../services/api';
 import { VerifyLogged } from '../../../utils/VerifyLogged';
+import logoLabeX from '../../../assets/images/logo.png';
+
+import {
+  ContainerCreateTripPage,
+  ContainerMediumADM,
+  Text,
+  ContainerForm,
+  LabeXHeader,
+  Header,
+  HeaderButtons,
+  FormQuestionsCreate,
+} from './styles';
 
 interface body {
   name: string;
   planet: string;
   date: string;
   description: string;
-  duration: number;
+  durationInDays: number;
 }
 
 const CreateTrips: React.FC = () => {
@@ -37,7 +51,6 @@ const CreateTrips: React.FC = () => {
 
   function ChangePlanet(e: any) {
     setPlanet(e.target.value);
-    console.log(planet);
   }
 
   function ChangeDescription(e: any) {
@@ -57,7 +70,7 @@ const CreateTrips: React.FC = () => {
     date: date,
     description: description,
     planet: planet,
-    duration: durationInDay,
+    durationInDays: durationInDay,
   };
 
   const getToken = () => {
@@ -66,49 +79,60 @@ const CreateTrips: React.FC = () => {
 
   const token = getToken();
 
-  let header: Auth = {
+  const header: any = {
     auth: token,
   };
-  console.log(header);
-
-  interface Auth {
-    auth: string | null;
-  }
 
   async function handleCreateTrip(e: any) {
     e.preventDefault();
 
     try {
-      await api.post('jonatan-machado/trips', body, Headers);
-      console.log('Cadastro feito!');
+      await api.post('jonatan-machado/trips', body, { headers: header });
+      toast.success('Cadastro feito! 🚀');
     } catch (err) {
-      console.log('erro ao cadastrar viagem!');
+      toast.error('erro ao cadastrar viagem! 🤔');
     }
   }
 
   return (
-    <>
-      <form onSubmit={handleCreateTrip}>
-        <label htmlFor="name">Nome</label>
-        <input value={name} onChange={ChangeName} />
-        <label htmlFor="planet">Planeta</label>
-        <select name="planetsChoices" onChange={ChangePlanet}>
-          <option value={''}>Escolha um planeta</option>
-          {planets.map((planet) => (
-            <option value={planet} key={planet}>
-              {planet}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="date">Data</label>
-        <input value={date} onChange={ChangeDate} type="date" />
-        <label htmlFor="description">Descrição</label>
-        <input value={description} onChange={ChangeDescription} />
-        <label htmlFor="duration">Duração</label>
-        <input value={durationInDay} onChange={ChangeDuration} />
-        <button>Cadastrar</button>
-      </form>
-    </>
+    <ContainerCreateTripPage>
+      <Header>
+        <LabeXHeader src={logoLabeX} alt="Logo-LabeX" />
+        <HeaderButtons>
+          <Link to="/admin">
+            <button>Voltar</button>
+          </Link>
+        </HeaderButtons>
+      </Header>
+      <ContainerMediumADM>
+        <Text>
+          <h1>Criação de viagem!</h1>
+          <h3>Preencha o formulário ao lado com as informações da viagem</h3>
+        </Text>
+      </ContainerMediumADM>
+      <ContainerForm>
+        <FormQuestionsCreate onSubmit={handleCreateTrip}>
+          <label htmlFor="name">Nome</label>
+          <input value={name} onChange={ChangeName} />
+          <label htmlFor="planet">Planeta</label>
+          <select name="planetsChoices" onChange={ChangePlanet}>
+            <option value={''}>Escolha um planeta</option>
+            {planets.map((planet) => (
+              <option value={planet} key={planet}>
+                {planet}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="date">Data</label>
+          <input value={date} onChange={ChangeDate} type="date" />
+          <label htmlFor="description">Descrição</label>
+          <input value={description} onChange={ChangeDescription} />
+          <label htmlFor="duration">Duração</label>
+          <input value={durationInDay} onChange={ChangeDuration} />
+          <button>Cadastrar</button>
+        </FormQuestionsCreate>
+      </ContainerForm>
+    </ContainerCreateTripPage>
   );
 };
 

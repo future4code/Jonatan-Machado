@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import api from '../../../services/api';
+import { VerifyLogged } from '../../../utils/VerifyLogged';
 
 // import { Container } from './styles';
 
 const ListTrips: React.FC = () => {
   const [listTrips, setListTrips] = useState([]);
+
+  VerifyLogged();
+
   useEffect(() => {
     api.get('jonatan-machado/trips').then((response) => {
       setListTrips(response.data.trips);
-      console.log(response.data);
     });
   }, []);
 
@@ -33,6 +37,11 @@ const ListTrips: React.FC = () => {
               <td>{trip.date}</td>
               <td>{trip.description}</td>
               <td>{trip.durationInDays}</td>
+              <td>
+                <Link to={`/admin/detalhes-da-viagem/${trip.id}`}>
+                  Ver Candidatos
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

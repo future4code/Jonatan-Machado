@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-// import { Container } from './styles';
 import api from '../../../services/api';
-
-import { VerifyLogged } from '../../../utils/VerifyLogged';
+import logoLabeX from '../../../assets/images/logo.png';
+import {
+  ContainerRegisterPage,
+  LabeX,
+  ContainerMediumHome,
+  RegisterRight,
+  ContainerButton,
+} from './styles';
 
 interface body {
   email: string;
@@ -14,7 +20,6 @@ interface body {
 const Register: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  VerifyLogged();
 
   function onchangePassword(e: any) {
     setPassword(e.target.value);
@@ -31,24 +36,35 @@ const Register: React.FC = () => {
   function handleLogin(e: any) {
     e.preventDefault();
     api.post('jonatan-machado/signup', body);
-    console.log('cadastro ok');
+    toast.success('cadastro pronto 😎');
   }
 
   return (
-    <>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">E-mail</label>
-        <input value={email} onChange={onchangeEmail} type="email" required />
-        <label htmlFor="password">Senha</label>
-        <input
-          value={password}
-          onChange={onchangePassword}
-          type="password"
-          required
-        />
-        <button type="submit">Registrar</button>
-      </form>
-    </>
+    <ContainerRegisterPage>
+      <ContainerMediumHome>
+        <LabeX src={logoLabeX} alt="Logo-LabeX" />
+      </ContainerMediumHome>
+      <RegisterRight>
+        <form onSubmit={handleLogin}>
+          <label htmlFor="email">E-mail</label>
+          <input value={email} onChange={onchangeEmail} type="email" required />
+          <br />
+          <label htmlFor="password">Senha</label>
+          <input
+            value={password}
+            onChange={onchangePassword}
+            type="password"
+            required
+          />
+          <ContainerButton>
+            <Link to="/">
+              <button type="submit">Voltar</button>
+            </Link>
+            <button type="submit">Registrar</button>
+          </ContainerButton>
+        </form>
+      </RegisterRight>
+    </ContainerRegisterPage>
   );
 };
 

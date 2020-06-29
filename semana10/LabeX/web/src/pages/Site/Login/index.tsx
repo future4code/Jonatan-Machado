@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import api from '../../../services/api';
 
-// import { Container } from './styles';
+import logoLabeX from '../../../assets/images/logo.png';
+import { VerifyLogged } from '../../../utils/VerifyLogged';
+import { Cryp } from '../../../utils/Cryp';
+
+import {
+  ContainerLoginPage,
+  LabeX,
+  ContainerMediumHome,
+  LoginRight,
+  ContainerButton,
+} from './styles';
 
 const Login: React.FC = () => {
   const [user, setUser] = useState('');
@@ -11,15 +21,7 @@ const Login: React.FC = () => {
 
   const history = useHistory();
 
-  useEffect(() => {
-    isLogged();
-  }, []);
-
-  function isLogged() {
-    if (token !== null) {
-      history.push('/admin/');
-    }
-  }
+  VerifyLogged();
 
   function Login(e: any) {
     setUser(e.target.value);
@@ -37,8 +39,8 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await api.post('jonatan-machado/login', body);
-      console.log(response.data.token);
       localStorage.setItem('token', response.data.token);
+      Cryp(response.data.user.email);
       history.push('/admin/');
     } catch (err) {
       console.log('erro', err);
@@ -46,15 +48,28 @@ const Login: React.FC = () => {
   }
 
   return (
-    <>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">Login</label>
-        <input value={user} onChange={Login} type="email" />
-        <label htmlFor="password">Senha</label>
-        <input value={password} onChange={Password} type="password" />
-        <button type="submit">Logar</button>
-      </form>
-    </>
+    <ContainerLoginPage>
+      <ContainerMediumHome>
+        <Link to="/">
+          <LabeX src={logoLabeX} alt="Logo-LabeX" />
+        </Link>
+        <LoginRight>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="email">Login</label>
+            <input value={user} onChange={Login} type="email" />
+            <br />
+            <label htmlFor="password">Senha</label>
+            <input value={password} onChange={Password} type="password" />
+            <ContainerButton>
+              <Link to="/">
+                <button type="submit">Voltar</button>
+              </Link>
+              <button type="submit">Logar</button>
+            </ContainerButton>
+          </form>
+        </LoginRight>
+      </ContainerMediumHome>
+    </ContainerLoginPage>
   );
 };
 
