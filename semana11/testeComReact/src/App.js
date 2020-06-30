@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "./App.css";
-import { Post } from "./components/Post";
+import React, { useState } from 'react';
+import './App.css';
+import { Post } from './components/Post';
 
 const App = () => {
   const [postsList, setPostsList] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
-  const onChangeInput = event => {
+  const [inputValue, setInputValue] = useState('');
+  const [error, setError] = useState(false);
+  const onChangeInput = (event) => {
     setInputValue(event.target.value);
   };
 
@@ -15,30 +15,35 @@ const App = () => {
     const newPost = {
       id: Date.now(),
       text: inputValue,
-      liked: false
+      liked: false,
     };
 
     const newPostsList = [newPost, ...postsList];
-
-    setPostsList(newPostsList);
+    if (inputValue === '') {
+      setError(true);
+    } else {
+      setPostsList(newPostsList);
+      setInputValue('');
+      setError(false);
+    }
   };
 
-  const deletePost = postId => {
+  const deletePost = (postId) => {
     // Apaga um post da lista
-    const newPostsList = postsList.filter(post => {
+    const newPostsList = postsList.filter((post) => {
       return postId !== post.id;
     });
 
     setPostsList(newPostsList);
   };
 
-  const toggleLike = postId => {
+  const toggleLike = (postId) => {
     // Altera o status de curtida de um post da lista
-    const newPostsList = postsList.map(post => {
+    const newPostsList = postsList.map((post) => {
       if (postId === post.id) {
         const novoPost = {
           ...post,
-          liked: !post.liked
+          liked: !post.liked,
         };
         return novoPost;
       } else {
@@ -50,27 +55,33 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <div>
         <input
-          type="text"
+          type='text'
           onChange={onChangeInput}
           value={inputValue}
-          placeholder={"Novo post"}
+          placeholder={'Novo post'}
         />
         <button onClick={addPost}>Adicionar</button>
       </div>
       <br />
-      {postsList.map(post => {
-        return (
-          <Post
-            key={post.id}
-            post={post}
-            toggleLike={toggleLike}
-            deletePost={deletePost}
-          />
-        );
-      })}
+      {error === false ? <hr /> : <h2>Insira uma task</h2>}
+      {postsList.length === 0 ? (
+        <h1>Nenhuma task</h1>
+      ) : (
+        postsList.map((post) => {
+          return (
+            <Post
+              key={post.id}
+              post={post}
+              toggleLike={toggleLike}
+              deletePost={deletePost}
+            />
+          );
+        })
+      )}
+      <p>quantidade de tasks: {postsList.length}</p>
     </div>
   );
 };

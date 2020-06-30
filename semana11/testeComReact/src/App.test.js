@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  render,
-  fireEvent,
-  waitForElement,
-  getByLabelText,
-} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
 
 const createTask = () => {
@@ -19,7 +14,7 @@ const createTask = () => {
   return task;
 };
 
-test('I hope that when you register hello it will appear in the tasks', () => {
+test('I hope that when you register hello, it appears in the tasks', () => {
   const { getByText } = createTask();
 
   const newTask = getByText(/hello/i);
@@ -57,4 +52,29 @@ test('clear input after add a task', () => {
   const inputTask = getByPlaceholderText(/novo post/i).value;
 
   expect(inputTask).toEqual('');
+});
+
+test('I expect the message "no task" to appear whenis empty', () => {
+  const { getByText } = render(<App />);
+
+  const checkEmpty = getByText(/Nenhuma task/i);
+
+  expect(checkEmpty);
+});
+
+test('I hope it shows the number of tasks if you have a task', () => {
+  const { getByText } = createTask();
+
+  const amountTask = getByText(/1/i);
+
+  expect(amountTask).toHaveTextContent(/quantidade de tasks/i);
+});
+
+test('Check if user created an empty task', () => {
+  const { getByText } = render(<App />);
+
+  const buttonAdd = getByText(/Adicionar/i);
+
+  fireEvent.click(buttonAdd);
+  expect(getByText(/Insira uma task/)).toBeInTheDocument();
 });
