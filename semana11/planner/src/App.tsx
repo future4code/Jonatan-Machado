@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import ListTask from './components/ListTasks';
-import CreateTask from './components/CreateTasks';
+import React from 'react';
+import Tasks from './components/Tasks';
 
 function App() {
   return (
-    <>
-      <ListTask />
-      <CreateTask />
-    </>
+    <div>
+      <Tasks />
+    </div>
   );
 }
 

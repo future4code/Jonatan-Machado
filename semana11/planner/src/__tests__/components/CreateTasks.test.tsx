@@ -1,69 +1,348 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import axios from 'axios';
+import { render, wait, fireEvent, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import CreateTask from '../../components/CreateTasks';
+import Task from '../../components/Tasks';
+import { api } from '../../services/api';
 
-const createTask = (text: string, day: string) => {
-  const utils = render(<CreateTask />);
-  const input = utils.getByPlaceholderText(/atividade/i);
-  const select = utils.getByLabelText(/dia/i);
-  const button = utils.getByText(/Cadastrar/i);
+afterEach(cleanup);
 
-  userEvent.type(input, text);
-  // userEvent.selectOptions(select, utils.getByLabelText(day).value);
-  userEvent.click(button);
+describe('Initial Rendering', () => {
+  it('Should input exist', () => {
+    const { getByPlaceholderText } = render(<Task />);
 
-  return utils;
-};
+    const input = getByPlaceholderText(/atividade/i);
 
-describe('CreateTask Component', () => {
-  it('Should create a task Monday', async () => {
-    const utils = createTask('segunda', 'monday');
+    expect(input).toBeInTheDocument();
+  });
+
+  it('Should select exist', () => {
+    const { getByLabelText } = render(<Task />);
+    expect(getByLabelText(/dia/i)).toHaveValue('');
+  });
+
+  it('Should button exist', () => {
+    const { getByText } = render(<Task />);
+
+    expect(getByText(/cadastrar/i)).toBeInTheDocument();
+  });
+});
+
+describe('Create a task', () => {
+  it('Create a task in the Monday', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'parkout',
+      },
+    });
+
+    expect(input).toHaveValue('parkout');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('segunda').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'parkout',
+      day: 'segunda',
+    });
+
+    await wait(() => expect(getByText(/parkout/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Tuesday', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'corrida',
+      },
+    });
+
+    expect(input).toHaveValue('corrida');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('terça').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'corrida',
+      day: 'terca',
+    });
+    await wait(() => expect(getByText(/corrida/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Wednesday ', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'bungee jump',
+      },
+    });
+
+    expect(input).toHaveValue('bungee jump');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('quarta').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'bungee jump',
+      day: 'quarta',
+    });
+    await wait(() => expect(getByText(/bungee jump/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Quinta ', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'surf',
+      },
+    });
+
+    expect(input).toHaveValue('surf');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('quinta').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'surf',
+      day: 'quinta',
+    });
+    await wait(() => expect(getByText(/surf/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Friday', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'escalada',
+      },
+    });
+
+    expect(input).toHaveValue('escalada');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('sexta').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'escalada',
+      day: 'sexta',
+    });
+    await wait(() => expect(getByText(/escalada/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Saturday ', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'surf',
+      },
+    });
+
+    expect(input).toHaveValue('surf');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('sábado').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'surf',
+      day: 'sabado',
+    });
+    await wait(() => expect(getByText(/surf/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+
+  it('Create a task in the Sunday ', async () => {
+    api.post = jest.fn().mockResolvedValue();
+
+    const {
+      getByPlaceholderText,
+      getByText,
+      getByLabelText,
+      queryByText,
+    } = render(<Task />);
+
+    const input = getByPlaceholderText(/atividade/i);
+
+    fireEvent.change(input, {
+      target: {
+        value: 'escalada',
+      },
+    });
+
+    expect(input).toHaveValue('escalada');
+
+    const select = getByLabelText(/Dia/i);
+    userEvent.selectOptions(select, queryByText('domingo').value);
+    const button = getByText(/cadastrar/i);
+    fireEvent.click(button);
+
+    expect(api.post).toHaveBeenCalledWith('planner-mello-jonatan-machado', {
+      text: 'escalada',
+      day: 'domingo',
+    });
+    await wait(() => expect(getByText(/escalada/i)).toBeInTheDocument());
+    await wait(() => expect(input).toHaveValue(''));
+  });
+});
+
+describe('Remove a task', () => {
+  it('Remove task in the Monday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/segunda/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Tuesday', async () => {
-    const utils = createTask('terça', 'tuesday');
+  it('Remove task in the Tuesday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/terça/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Wednesday', async () => {
-    const utils = createTask('quarta', 'wednesday');
+  it('Remove task in the Wednesday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/quarta/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Thursday', async () => {
-    const utils = createTask('quinta', 'thursday');
+  it('Remove task in the Thursday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/quinta/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Fryday', async () => {
-    const utils = createTask('sexta', 'friday');
+  it('Remove task in the friday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/sexta/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Saturday', async () => {
-    const utils = createTask('sabado', 'saturday');
+  it('Remove task in the Saturday', async () => {
+    const utils = render(<Task />);
 
-    const task = await utils.findByText(/sabado/);
-    expect(task).toBeInTheDocument();
+    const task = await utils.findByText(/sábado/);
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).toBeNull();
+    });
   });
 
-  it('Should create a task Sunday', async () => {
-    const utils = createTask('domingo', 'sunday');
+  it('Remove task in the Sunday', async () => {
+    const utils = render(<Task />);
 
     const task = await utils.findByText(/domingo/);
-    expect(task).toBeInTheDocument();
+
+    userEvent.click(task);
+
+    await wait(() => {
+      expect(utils.queryByText('delete')).tdoBeNull();
+    });
   });
 });
