@@ -10,8 +10,6 @@ export const PegaNomeEIdade = (name: string, age: number) => {
   const response = `olá, ${name}! você tem ${age} anos. Em sete anos você terá ${
     age + 7
   }`;
-  console.log(response);
   return response;
 };
-
 PegaNomeEIdade(process.argv[2], Number(process.argv[3]));
