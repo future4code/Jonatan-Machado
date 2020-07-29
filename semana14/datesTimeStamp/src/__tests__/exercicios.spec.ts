@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { ReadEvent } from '../exercicio2';
 import { printAllEvents } from '../exercicio3';
-
+import { createEvent } from '../exercicio4';
 const event = [
   {
     name: 'Reuniãozinha',
@@ -37,7 +37,44 @@ describe('Exercicio 3', () => {
 });
 
 describe('Exercicio 4', () => {
-  it('', () => {});
-  it('', () => {});
-  it('', () => {});
+  it('should show error for leaving the name empty', () => {
+    expect(
+      createEvent(
+        '',
+        'teste',
+        moment('26/06/2020 17:00'),
+        moment('29/06/2020 17:00'),
+      ),
+    ).toBe(undefined);
+  });
+  it('should show error for leaving the description empty', () => {
+    expect(
+      createEvent(
+        'Paulo',
+        '',
+        moment('26/06/2020 17:00'),
+        moment('29/06/2020 17:00'),
+      ),
+    ).toBe(undefined);
+  });
+  it('should show error for leaving the start date empty', () => {
+    expect(
+      createEvent('Paulo', 'teste', moment(''), moment('29/06/2020 17:00')),
+    ).toBe(undefined);
+  });
+  it('should show error for leaving the end date empty', () => {
+    expect(
+      createEvent('Paulo', 'teste', moment('29/06/2020 17:00'), moment('')),
+    ).toBe(undefined);
+  });
+  it('should show error for leaving the end date empty', () => {
+    expect(
+      createEvent(
+        'Paulo',
+        'teste',
+        moment('22/05/2020 17:00'),
+        moment('20/05/2020 17:00'),
+      ),
+    ).toBe('erro');
+  });
 });
