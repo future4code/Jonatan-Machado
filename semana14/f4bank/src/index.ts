@@ -1,5 +1,6 @@
 import createAccount from './services/createAccount';
 import getBallance from './services/getBallance';
+import addBalance from './services/addBalace';
 export function initialScreen(option: string) {
   switch (process.argv[2]) {
     case 'create': {
@@ -12,6 +13,8 @@ export function initialScreen(option: string) {
     }
     case 'balance': {
       getBallance(process.argv[3], process.argv[4]);
+    }
+    case 'deposit': {
     }
     default:
       return 'Error, option error invalidates';
