@@ -11,7 +11,7 @@ export function initialScreen(option: string) {
       );
     }
     case 'balance': {
-      getBallance(process.argv[3]);
+      getBallance(process.argv[3], process.argv[4]);
     }
     default:
       return 'Error, option error invalidates';

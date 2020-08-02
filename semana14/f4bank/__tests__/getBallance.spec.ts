@@ -1,5 +1,3 @@
-jest.mock('../src/services/getAllAccounts');
-
 import getBallance from '../src/services/getBallance';
 
 describe('Get Ballance function ', () => {
@@ -18,7 +16,6 @@ describe('Get Ballance function ', () => {
     expect(response).toBe('empty name error');
   });
   it('should name and ballance', () => {
-    jest.mock('../src/services/getBallance');
     const getBallance = (name: string, cpf: string) => {
       const data = [{ name: 'jonatan', cpf: '00000000000', balance: 90 }];
       if (data[0].cpf === cpf) {
