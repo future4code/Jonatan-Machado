@@ -1,6 +1,6 @@
 import createAccount from './services/createAccount';
 import getBallance from './services/getBallance';
-import addBalance from './services/addBalace';
+import addBalance from './services/addBalance';
 export function initialScreen(option: string) {
   switch (process.argv[2]) {
     case 'create': {

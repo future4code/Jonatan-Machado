@@ -1,5 +1,7 @@
 import getBallance from '../src/services/getBallance';
 
+let accounts: any = [];
+
 describe('Get Ballance function ', () => {
   it('should show error by blank cpf', () => {
     const response = getBallance('jonatan', '');
@@ -15,13 +17,25 @@ describe('Get Ballance function ', () => {
     const response = getBallance('', '00000000000');
     expect(response).toBe('empty name error');
   });
+
   it('should name and ballance', () => {
-    const getBallance = (name: string, cpf: string) => {
-      const data = [{ name: 'jonatan', cpf: '00000000000', balance: 90 }];
-      if (data[0].cpf === cpf) {
-        return data[0].balance;
-      }
-    };
-    expect(getBallance('jonatan', '00000000000')).toBe(90);
+    jest.fn(() => {
+      return accounts.push({
+        name: 'jonatan',
+        cpf: '00000000000',
+        ballance: 10,
+      });
+    });
+    const getBalance = jest.fn(() => {
+      getBallance('jonatan', '00000000000');
+      return {
+        cpf: '00000000000',
+        ballance: 10,
+        name: 'jonatan',
+      };
+    });
+    const b = getBalance();
+
+    expect(b.ballance).toBe(10);
   });
 });
