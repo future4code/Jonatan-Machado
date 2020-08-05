@@ -1,15 +1,19 @@
 import { Employee } from '../Class/Employee';
 import moment from 'moment';
+const day = moment('02/12/1992', 'DD/MM/YYYY');
+const employee = new Employee(
+  '1',
+  'email@mail.com',
+  'jonatan',
+  'colorado',
+  900,
+  day,
+);
 describe('class Employee', () => {
-  const day = moment('02/12/1992', 'DD/MM/YYYY');
-  const employee = new Employee(
-    '1',
-    'email@mail.com',
-    'jonatan',
-    'colorado',
-    900,
-    day,
-  );
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it('should show the registered user id', () => {
     expect(employee.getId()).toEqual('1');
   });
@@ -43,15 +47,17 @@ describe('class Employee', () => {
     expect(employee.addmissionDate).toEqual(moment('02/12/1995', 'DD/MM/YYYY'));
   });
 
+  it('should show the total salary', () => {
+    expect(employee.calculateTotalSalary()).toBe(490);
+  });
+
   it('should not change the salary base ', () => {
     const alterBaseSalary = (employee.baseSalary = -90);
-    expect(employee.baseSalary).toEqual(900);
+    expect(employee.baseSalary).toEqual(490);
   });
 
   it('should not change the admission date ', () => {
     const response = (employee.addmissionDate = moment('', 'DD/MM/YYYY'));
-    expect(employee.addmissionDate).toEqual(moment('02/12/1992', 'DD/MM/YYYY'));
+    expect(employee.addmissionDate).toEqual(moment('02/12/1995', 'DD/MM/YYYY'));
   });
 });
-
-moment().isValid();
