@@ -1,8 +1,8 @@
 import { User } from './User';
 
 export class Employee extends User {
-  private addmissionDate: string;
-  private baseSalary: number;
+  protected _addmissionDate: moment.Moment;
+  protected _baseSalary: number;
 
   constructor(
     id: string,
@@ -10,15 +10,32 @@ export class Employee extends User {
     name: string,
     password: string,
     baseSalary: number,
-    addmissionDate: string,
+    addmissionDate: moment.Moment,
   ) {
     super(id, email, name, password);
     console.log('Chamando o construtor da classe Customer');
-    this.baseSalary = baseSalary;
-    this.addmissionDate = addmissionDate;
+    this._baseSalary = baseSalary;
+    this._addmissionDate = addmissionDate;
   }
 
-  public getCreditCard(): number {
-    return this.baseSalary;
+  get addmissionDate(): moment.Moment {
+    return this._addmissionDate;
+  }
+
+  set addmissionDate(date: moment.Moment) {
+    console.log(date);
+    if (date.isValid()) {
+      this._addmissionDate = date;
+    }
+  }
+
+  get baseSalary(): number {
+    return this._baseSalary;
+  }
+
+  set baseSalary(salary: number) {
+    if (salary >= 0) {
+      this._baseSalary = salary;
+    }
   }
 }
