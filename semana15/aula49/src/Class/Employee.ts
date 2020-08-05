@@ -38,4 +38,8 @@ export class Employee extends User {
       this._baseSalary = salary;
     }
   }
+
+  calculateTotalSalary() {
+    return (this.baseSalary += 400);
+  }
 }
